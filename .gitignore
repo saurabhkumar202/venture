@@ -2,7 +2,7 @@ node/*
 bower_components/
 .sass-cache/
 .tmp/
-*.xml
+
 
 target/
 src/app/i18n

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="TestNGSpringIntegration Suite" parallel="false">
+    <test name="TestNGSpringIntegrationTest">
+        <classes>
+            <class name="com.venture.success.Tests.HomePageTest"/>
+            <class name="com.venture.success.Tests.BaseTest"/>
+            <class name="com.venture.success.Tests.SearchResultPageTest"/>
+        </classes>
+    </test>
+</suite>
