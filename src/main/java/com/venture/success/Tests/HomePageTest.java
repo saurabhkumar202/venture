@@ -25,7 +25,6 @@ public class HomePageTest extends AbstractTestNGSpringContextTests {
 
     @Test(priority = 0)
     public void launchGoogleAndVerifyTitle(){
-        System.out.println("The home Pae object on home page is"+homePage);
         Assert.assertEquals(homePage.getGoogleTitle(),"Google");
         homePage.performGoogleSearchForResults();
 

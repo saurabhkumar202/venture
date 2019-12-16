@@ -25,26 +25,25 @@ public class HomePage {
         return localChromeDriver.getTitle();
     }
 
-    public GoogleSearchResultPage performGoogleSearchForResults(){
+    public GoogleSearchResultPage performGoogleSearchForResults() {
         Properties pr = new Properties();
-        try{
-            BufferedReader br = new BufferedReader(new FileReader("F:\\ULC codebase latest\\hope\\src\\main\\java\\com\\venture\\success\\Resources\\application.properties"));
+        BufferedReader br, lr;
+        try {
+            br = new BufferedReader(new FileReader("src\\main\\java\\com\\venture\\success\\Resources\\application.properties"));
+            lr = new BufferedReader(new FileReader("src\\main\\java\\com\\venture\\success\\Resources\\locator.properties"));
             pr.load(br);
-            String key=pr.getProperty("searchKeyword");
-            localChromeDriver.findElement(By.cssSelector("div.a4bIc > input")).sendKeys(key);
-        }
-        catch (Exception e){
+            String key = pr.getProperty("searchKeyword");
+            pr.load(lr);
+            localChromeDriver.findElement(By.cssSelector(pr.getProperty("searchBox"))).sendKeys(key);
+            br.close();
+        } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-
-       try
-       {
-           Thread.sleep(5000);
-       }
-       catch (Exception e)
-       {
-           System.out.println("Exception occured "+e.getMessage());
-       }
+        try {
+            Thread.sleep(5000);
+        } catch (Exception e) {
+            System.out.println("Exception occured " + e.getMessage());
+        }
 
         localChromeDriver.findElement(By.cssSelector("ul > li:nth-child(1)")).click();
         return googleSearchResultPage;
