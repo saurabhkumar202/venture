@@ -1,5 +1,6 @@
 package com.venture.success.Pages;
 
+import com.venture.success.utils.PropertiesHelper;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,8 +15,11 @@ public class GoogleSearchResultPage {
     @Autowired
     private RecommendationPage recommendationPage;
 
+    @Autowired
+    private PropertiesHelper propertiesHelper;
+
     public RecommendationPage browseFirstRecommendation(){
-        localChromeDriver.findElement(By.cssSelector("#vn1s0p1c0 > h3")).click();
+        localChromeDriver.findElement(By.cssSelector(propertiesHelper.getFirstRecommend())).click();
         return recommendationPage;
     }
 }
